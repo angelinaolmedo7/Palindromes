@@ -5,6 +5,14 @@ def contains(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement contains here (iteratively and/or recursively)
+    add = 1
+    if len(pattern) == 0:
+        add = 0
+    for i in range(0, len(text)-len(pattern)+add):
+        # print(text[i:i+len(pattern)])
+        if pattern == text[i:i+len(pattern)]:
+            return True
+    return False
 
 
 def find_index(text, pattern):
@@ -13,6 +21,13 @@ def find_index(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_index here (iteratively and/or recursively)
+    add = 1
+    if len(pattern) == 0:
+        add = 0
+    for i in range(0, len(text)-len(pattern)+add):
+        if pattern == text[i:i+len(pattern)]:
+            return i
+    return None
 
 
 def find_all_indexes(text, pattern):
@@ -21,6 +36,14 @@ def find_all_indexes(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
+    rtn_list = []
+    add = 1
+    if len(pattern) == 0:
+        add = 0
+    for i in range(0, len(text)-len(pattern)+add):
+        if pattern == text[i:i+len(pattern)]:
+            rtn_list.append(i)
+    return rtn_list
 
 
 def test_string_algorithms(text, pattern):
